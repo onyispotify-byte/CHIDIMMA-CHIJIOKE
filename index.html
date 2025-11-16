@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chidimma & Chijioke Wedding RSVP</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ballet:wght@400..700&family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* --- Color Variables (Plum, Gold, Ivory) --- */
         :root {
@@ -12,7 +12,7 @@
             --color-gold: #C9A95F;         
             --color-ivory: #FDF5E6;        
             --color-text: #333333;
-            --font-heading: 'Playfair Display', serif;
+            --font-heading: 'Ballet', cursive; /* Using the new script font */
             --font-body: 'EB Garamond', serif; 
         }
 
@@ -28,18 +28,17 @@
             min-height: 100vh;
             background-color: var(--color-ivory); 
             
-            /* --- CRITICAL FIX: SINGLE, FULL-SCREEN BACKGROUND IMAGE using your name --- */
             background-image: url('floral-bg.png'); 
-            background-size: cover; /* Ensures the image covers the whole screen */
+            background-size: cover; 
             background-position: center center; 
-            background-repeat: no-repeat; /* Stops the image from tiling/repeating */
+            background-repeat: no-repeat; 
             background-attachment: fixed; 
         }
 
         .container {
             width: 90%;
             max-width: 650px; 
-            background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white box */
+            background-color: rgba(255, 255, 255, 0.95); 
             padding: 60px 50px; 
             margin: 40px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); 
@@ -49,20 +48,23 @@
 
         /* --- Typography --- */
         h1, h2, h3 {
-            font-family: var(--font-heading); 
+            font-family: var(--font-heading); /* Now Ballet */
             color: var(--color-plum);
-            letter-spacing: 2px; 
+            letter-spacing: 0; /* No letter spacing for script font */
             font-weight: 400;
         }
 
-        h1 { font-size: 3em; margin-bottom: 5px; text-transform: none; }
-        h2 { font-size: 2em; margin-top: 5px; margin-bottom: 40px; color: var(--color-gold); font-weight: 700; }
+        h1 { font-size: 3.8em; margin-bottom: 5px; text-transform: none; line-height: 1.1; font-weight: 400; } /* Larger script font */
+        h2 { font-size: 2.8em; margin-top: 5px; margin-bottom: 40px; color: var(--color-gold); font-weight: 400; } /* Larger script font */
         h3 { 
+            /* H3 reverts to EB Garamond for clear structure */
+            font-family: var(--font-body); 
             border-bottom: 1px solid var(--color-gold); 
             padding-bottom: 8px; 
             margin-top: 40px;
             font-size: 1.5em; 
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .details p {
@@ -82,7 +84,7 @@
             font-size: 1.25em;
         }
         
-        /* --- Form Styles --- */
+        /* --- Form Styles (No change) --- */
         .form-group { margin-bottom: 25px; text-align: left; }
         label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--color-plum); }
         input[type="text"], select { 
@@ -116,7 +118,7 @@
         }
         .submit-btn:hover { background-color: #794D7D; }
 
-        /* --- Confirmation Area --- */
+        /* --- Confirmation Area (No change) --- */
         #confirmation { 
             display: none; 
             margin-top: 50px; 
@@ -126,19 +128,6 @@
             border-radius: 4px;
         }
         #confirmation p { font-weight: 500; }
-        #card-link {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 14px 30px;
-            background-color: var(--color-gold);
-            color: var(--color-plum);
-            font-size: 1.1em;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 2px;
-            transition: opacity 0.3s;
-        }
-        #card-link:hover { opacity: 0.9; }
     </style>
 </head>
 <body>
@@ -192,11 +181,6 @@
         <div id="confirmation">
             <h3>RSVP Submitted!</h3>
             <p>Thank you for confirming your attendance! Your response has been recorded.</p>
-            <p>Download your digital wedding card below:</p>
-            
-            <a id="card-link" href="https://drive.google.com/uc?export=download&id=1cY7qFbItLa0Qw6zZ1705p6ICHxKVR_O7" target="_blank">
-                🎉 Download Your Digital Card 🎉
-            </a>
         </div>
     </div>
 
