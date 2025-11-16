@@ -8,12 +8,12 @@
     <style>
         /* --- Color Variables (Plum, Gold, Ivory) --- */
         :root {
-            --color-plum: #5D375F;         /* Rich Plum */
-            --color-gold: #C9A95F;         /* Elegant Gold */
-            --color-ivory: #FDF5E6;        /* Soft Ivory */
+            --color-plum: #5D375F;         
+            --color-gold: #C9A95F;         
+            --color-ivory: #FDF5E6;        
             --color-text: #333333;
             --font-heading: 'Playfair Display', serif;
-            --font-body: 'EB Garamond', serif; /* Updated Font */
+            --font-body: 'EB Garamond', serif; 
         }
 
         /* --- Global Styles & Floral Background (Minimalist) --- */
@@ -28,28 +28,28 @@
             min-height: 100vh;
             background-color: var(--color-ivory); 
             
-            /* --- SUBTLE FLORAL BACKGROUND PATTERN --- */
-            /* Using a repeating, very light floral pattern */
-            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MCIgaGVpZ2h0PSI3MCIgdmlld0JveD0iMCAwIDcwIDcwIj48cGF0aCBkPSJNNTQuOTY0IDQ2LjI0QzUwLjggNDcuMTIgNDYuNzI3IDQ1LjQyNyA0Mi41MzMgNDMuMDMgMjUuNTIgMzMuMTIzIDI0LjM2MyAxMi44NDQgMjQuMTk2IDExLjk0Yy0uMTI3LS41My0uNjI4LS45Mi0xLjItLjgzTDY1LjY3IDU0Ljg0YS44OTcuODk3IDAgMCAwIC41MTctMS4zNzUgNC41MiA0LjUyIDAgMCAwLS45NS0uMTkgMTQuNzU1IDE0Ljc1NSAwIDAgMS01LjA2NS0uMzQ4em0tMzkuNTgtMTAuNTE4Yy0yLjA3Ni0zLjAyMy0zLjQ2Ni02LjY3LTQuMDkxLTEwLjU0LS42MDctMy43NjIgMS43MTgtOS40MjggMi41NjMtMTAuOTU0IDEuNzQ2LTMuMTg3IDYuNDYtNi45MDcgMTAuNTk0LTcuMzI4IDcuNjk1LS43OCAxNC40NDMgNS43OTcgMTguODcgMTMuOTkgMi4yODcgNC4xNzggMy43MTMgOC42NDcgNC4zMyAxMy4xNjIuNjkgNS4wODMtMS43NSA5LjU0LTUuODc0IDEzLjQ5NWMtNi4zMTcgNi4wOTUtMTUuNDEgNC44MDQtMjAuNzExIDMuNTctMi44NjUtLjY1MS01Ljg0LTEuNjcyLTguMDI5LTIuNjk1eiIgZmlsbD0iI2U2ZTZlNiIgcGFjaXR5PSIuNSIgLz48L3N2Zy4+");
+            /* --- SUBTLE FLORAL BACKGROUND PATTERN using file path --- */
+            background-image: url('floral-bg.png'); /* Ensure floral-bg.png is uploaded to your repo */
             background-repeat: repeat;
+            background-size: 70px 70px;
         }
 
         .container {
             width: 90%;
             max-width: 650px; 
-            background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white box */
+            background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white to see texture */
             padding: 60px 50px; 
             margin: 40px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Slightly deeper shadow for contrast */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); 
             border-radius: 4px;
             text-align: center;
         }
 
-        /* --- Typography: Thin, Elegant, and Minimal --- */
+        /* --- Typography --- */
         h1, h2, h3 {
-            font-family: var(--font-heading); /* Keeping Playfair for titles for a script-like contrast */
+            font-family: var(--font-heading); 
             color: var(--color-plum);
-            letter-spacing: 2px; /* Increased letter spacing for luxury */
+            letter-spacing: 2px; 
             font-weight: 400;
         }
 
@@ -59,13 +59,13 @@
             border-bottom: 1px solid var(--color-gold); 
             padding-bottom: 8px; 
             margin-top: 40px;
-            font-size: 1.5em; /* Slightly larger headers */
+            font-size: 1.5em; 
             text-transform: uppercase;
         }
 
         .details p {
-            font-family: var(--font-body); /* EB Garamond for body text */
-            font-size: 1.2em; /* Larger body text for readability */
+            font-family: var(--font-body); 
+            font-size: 1.2em; 
             line-height: 1.8;
             font-weight: 400; 
         }
@@ -73,7 +73,7 @@
         /* --- Styling for Bold, Stylized Details (Date, Time, Venue) --- */
         .detail-highlight {
             font-family: var(--font-body); 
-            font-weight: 600; /* Medium weight */
+            font-weight: 600; 
             color: var(--color-plum); 
             display: block;
             margin-top: 5px;
@@ -102,7 +102,7 @@
         .submit-btn {
             background-color: var(--color-plum);
             color: white;
-            padding: 16px 40px; /* Larger button */
+            padding: 16px 40px; 
             border: none;
             border-radius: 2px;
             cursor: pointer;
