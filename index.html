@@ -6,7 +6,7 @@
     <title>The Wedding Reception of Chidimma & Chijioke</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* Plum, Gold, Ivory Palette */
+        /* --- Color Variables (Plum, Gold, Ivory) --- */
         :root {
             --color-plum: #5D375F; 
             --color-gold: #C9A95F; 
@@ -15,14 +15,74 @@
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Cormorant Garamond', serif;
         }
-        body { font-family: var(--font-body); background-color: var(--color-ivory); /* ... other styles ... */ }
-        .container { /* ... container styles ... */ }
-        h1, h2, h3 { font-family: var(--font-heading); color: var(--color-plum); /* ... other styles ... */ }
-        .form-group { /* ... form styles ... */ }
-        .submit-btn { background-color: var(--color-plum); color: var(--color-ivory); /* ... other styles ... */ }
-        #confirmation { display: none; /* ... other styles ... */ }
-        #card-link { background-color: var(--color-gold); color: var(--color-plum); /* ... other styles ... */ }
-        /* (The rest of the CSS is assumed from previous steps) */
+
+        /* --- Global Styles --- */
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-ivory);
+            color: var(--color-text);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            background-color: white;
+            padding: 40px;
+            margin: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-top: 10px solid var(--color-gold);
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--color-plum);
+            text-transform: uppercase;
+        }
+        
+        .details p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        
+        /* --- Form & Button Styles --- */
+        .form-group { margin-bottom: 20px; text-align: left; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; color: var(--color-plum); }
+        input[type="text"], select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-family: var(--font-body); font-size: 1em; }
+        .submit-btn {
+            background-color: var(--color-plum);
+            color: var(--color-ivory);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+        .submit-btn:hover { background-color: #794D7D; }
+
+        /* --- Confirmation Area --- */
+        #confirmation { display: none; margin-top: 30px; padding: 20px; border: 1px solid var(--color-gold); background-color: var(--color-ivory); color: var(--color-text); }
+        #card-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: var(--color-gold);
+            color: var(--color-plum);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: opacity 0.3s;
+        }
+        #card-link:hover { opacity: 0.8; }
     </style>
 </head>
 <body>
@@ -46,9 +106,9 @@
         <div id="rsvp-section">
             <h3>Kindly Respond</h3>
             
-            <form id="rsvp-form" action="[PASTE YOUR SHEETMONKEY ENDPOINT URL HERE]" method="POST">
+            <form id="rsvp-form" action="https://script.google.com/macros/s/AKfycbwGid5ZEVf1sUDv1Rc7h3MCFENS2OUJmct0Frizkp_xvIOlnd_VYl5JIhjNF1WghB6q/exec" method="POST">
                 
-                <input type="hidden" name="redirect" value="#confirmation">
+                <input type="hidden" name="redirect" value="https://onyispotify-byte.github.io/CHIDINMA-CHIJIOKE/#confirmation">
                 
                 <div class="form-group">
                     <label for="name">Your Full Name(s)</label>
@@ -90,18 +150,18 @@
         const attendingSelect = document.getElementById('attending');
         const plusOneGroup = document.getElementById('plus-one-group'); 
 
-        // Toggle 'Plus One' visibility and set default values
+        // Toggle 'Plus 1?' field visibility
         attendingSelect.addEventListener('change', function() {
             if (this.value === 'Yes') {
                 plusOneGroup.style.display = 'block';
-                document.getElementById('plus_one').value = 'No'; // Default to No, guest must select Yes
+                document.getElementById('plus_one').value = 'No'; 
             } else {
                 plusOneGroup.style.display = 'none';
-                document.getElementById('plus_one').value = 'No'; // Ensure "No" is recorded if not attending
+                document.getElementById('plus_one').value = 'No';
             }
         });
         
-        // Control visibility of confirmation vs. form based on URL hash
+        // Control visibility of confirmation vs. form based on URL hash (after script redirect)
         if (!window.location.hash || window.location.hash !== '#confirmation') {
             document.getElementById('confirmation').style.display = 'none';
         } else {
