@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chidinma & Chijioke Wedding RSVP</title>
+    <title>Chidimma & Chijioke Wedding RSVP</title>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* --- Color Variables (Plum, Gold, Ivory) --- */
@@ -98,6 +98,36 @@
             font-size: 1.25em;
         }
         
+        /* --- INVITATION IMAGE STYLING (NEW) --- */
+        .invitation-image {
+            width: 100%;
+            margin: 20px 0 40px; 
+            overflow: hidden; 
+            border: 5px solid var(--color-gold);
+            border-radius: 4px;
+        }
+        .invitation-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- RESTRICTION BOX STYLING (NEW) --- */
+        .restriction-box {
+            background-color: var(--color-ivory);
+            border: 2px solid var(--color-plum); 
+            padding: 15px 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        .restriction-box p {
+            font-size: 1.1em;
+            color: var(--color-plum);
+            font-weight: 600;
+            line-height: 1.5;
+            margin: 5px 0;
+        }
+
         /* --- Form Styles --- */
         .form-group { margin-bottom: 25px; text-align: left; }
         label { 
@@ -167,18 +197,29 @@
 <body>
     <div class="container">
         <h1>Wedding Reception</h1>
-        <h2>CHIDINMA OBIDIEGWU & CHIJIOKE AMAECHI</h2>
+        <h2>CHIDIMMA OBIDIEGWU & CHIJOIKE AMAECHI</h2>
+
+        <div class="invitation-image">
+            <img src="invitation_card.jpg" alt="Official Wedding Invitation Card">
+        </div>
 
         <div class="details">
             <h3>Date & Location</h3>
             <p>
                 <span class="detail-highlight">Date: 13th December 2025</span>
-                <span class="detail-highlight">Time: 1:00 PM</span>
+                <span class="detail-highlight">Time: 2:00 PM</span>
                 <span class="detail-highlight">Venue: Villa Park Hotels and Suites, Festac Access Road, Lagos.</span>
             </p>
         </div>
 
         <div id="rsvp-section">
+            
+            <div class="restriction-box">
+                <p>🚫 &nbsp; **STRICTLY BY INVITATION** &nbsp; 🚫</p>
+                <p>This is an **Adults Only** reception.</p>
+                <p>We kindly request no children be in attendance.</p>
+            </div>
+            
             <h3>Kindly Respond</h3>
             <p style="margin-bottom: 30px; font-style: italic;">Please confirm your attendance below.</p>
             
@@ -244,7 +285,7 @@
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxyyTCZtfmegJMgu8TOuTu-ViEZO_q-NbF-2Qev2CUKD7Z6jMT6OzDenq62UY3BVRWfqg/exec';
 
         rsvpForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop the browser from navigating away
+            e.preventDefault(); 
 
             // Capture the RSVP status before submission
             const rsvpStatus = attendingSelect.value; 
@@ -260,11 +301,10 @@
             fetch(SCRIPT_URL, {
                 method: 'POST',
                 body: formData,
-                mode: 'no-cors' // Necessary for cross-origin submission to Apps Script
+                mode: 'no-cors' 
             })
             .then(response => {
-                // Assuming submission worked because no-cors prevents checking status
-                console.log('Submission successful.');
+                // Assuming submission worked.
 
                 // --- CUSTOM MESSAGE LOGIC ---
                 const confirmationTitle = confirmationSection.querySelector('h3');
