@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chidimma & Chijioke Wedding RSVP</title>
+    <title>Chidinma & Chijioke Wedding RSVP</title>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* --- Color Variables (Plum, Gold, Ivory) --- */
@@ -98,7 +98,13 @@
             font-size: 1.25em;
         }
         
-        /* --- INVITATION IMAGE STYLING (NEW) --- */
+        /* --- Venue Specific Styling (Black & Bold) --- */
+        .venue-highlight {
+            color: var(--color-text); /* Black */
+            font-weight: 700;
+        }
+        
+        /* --- INVITATION IMAGE STYLING --- */
         .invitation-image {
             width: 100%;
             margin: 20px 0 40px; 
@@ -112,7 +118,7 @@
             display: block;
         }
 
-        /* --- RESTRICTION BOX STYLING (NEW) --- */
+        /* --- RESTRICTION BOX STYLING --- */
         .restriction-box {
             background-color: var(--color-ivory);
             border: 2px solid var(--color-plum); 
@@ -197,18 +203,18 @@
 <body>
     <div class="container">
         <h1>Wedding Reception</h1>
-        <h2>CHIDIMMA OBIDIEGWU & CHIJOIKE AMAECHI</h2>
+        <h2>CHIDINMA OBIDIEGWU & CHIJIJOKE AMAECHI</h2>
 
         <div class="invitation-image">
-            <img src="invitation_card.jpg" alt="Official Wedding Invitation Card">
+            <img src="INVITAATION.jpg" alt="Official Wedding Invitation Card">
         </div>
 
         <div class="details">
             <h3>Date & Location</h3>
             <p>
                 <span class="detail-highlight">Date: 13th December 2025</span>
-                <span class="detail-highlight">Time: 2:00 PM</span>
-                <span class="detail-highlight">Venue: Villa Park Hotels and Suites, Festac Access Road, Lagos.</span>
+                <span class="detail-highlight">Time: 1:00 PM</span>
+                <span class="detail-highlight venue-highlight">Venue: Villa Park Hotels and Suites, Festac Access Road, Lagos.</span>
             </p>
         </div>
 
@@ -226,8 +232,8 @@
             <form id="rsvp-form"> 
                 
                 <div class="form-group">
-                    <label for="name">Your Full Name(s)</label>
-                    <input type="text" id="name" name="Name" required placeholder="e.g., Mr. and Mrs. Smith">
+                    <label for="name">Your Full Name</label>
+                    <input type="text" id="name" name="Name" required placeholder="e.g., John Doe ">
                 </div>
 
                 <div class="form-group">
@@ -236,14 +242,6 @@
                         <option value="">-- Select an option --</option>
                         <option value="Yes">Yes, With Pleasure!</option>
                         <option value="No">Regretfully, Cannot Attend</option>
-                    </select>
-                </div>
-
-                <div class="form-group" id="plus-one-group" style="display:none;">
-                    <label for="plus_one">Are You Bringing a Plus One?</label>
-                    <select id="plus_one" name="Plus 1?">
-                        <option value="No">No</option>
-                        <option value="Yes">Yes</option>
                     </select>
                 </div>
 
@@ -261,27 +259,17 @@
     <script>
         // *** 1. EVENT LISTENERS AND UX LOGIC ***
         const attendingSelect = document.getElementById('attending');
-        const plusOneGroup = document.getElementById('plus-one-group'); 
         const rsvpForm = document.getElementById('rsvp-form');
         const rsvpSection = document.getElementById('rsvp-section');
         const confirmationSection = document.getElementById('confirmation');
         const loader = document.getElementById('loader');
         const submitBtn = document.querySelector('.submit-btn');
         
-        // Toggle plus-one field
-        attendingSelect.addEventListener('change', function() {
-            if (this.value === 'Yes') {
-                plusOneGroup.style.display = 'block';
-                document.getElementById('plus_one').value = 'No'; 
-            } else {
-                plusOneGroup.style.display = 'none';
-                document.getElementById('plus_one').value = 'No';
-            }
-        });
+        // No Plus One logic needed.
         
-        // *** 2. AJAX SUBMISSION LOGIC (Keeps user on the page) ***
+        // *** 2. AJAX SUBMISSION LOGIC ***
         
-        // CRITICAL: Use the correct Google Apps Script URL here!
+        // CRITICAL: Use your correct Google Apps Script URL here!
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxyyTCZtfmegJMgu8TOuTu-ViEZO_q-NbF-2Qev2CUKD7Z6jMT6OzDenq62UY3BVRWfqg/exec';
 
         rsvpForm.addEventListener('submit', function(e) {
@@ -304,7 +292,7 @@
                 mode: 'no-cors' 
             })
             .then(response => {
-                // Assuming submission worked.
+                // Assuming submission worked (AJAX success).
 
                 // --- CUSTOM MESSAGE LOGIC ---
                 const confirmationTitle = confirmationSection.querySelector('h3');
