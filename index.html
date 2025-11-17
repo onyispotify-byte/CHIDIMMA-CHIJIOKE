@@ -95,7 +95,7 @@
             color: var(--color-plum); 
             display: block;
             margin-top: 5px;
-            font-size: 1.25em;
+            font-size: 1.35em; 
         }
         
         /* --- Venue Specific Styling (Black & Bold) --- */
@@ -206,7 +206,7 @@
         <h2>CHIDINMA OBIDIEGWU & CHIJIJOKE AMAECHI</h2>
 
         <div class="invitation-image">
-            <img src="INVITAATION.jpg" alt="Official Wedding Invitation Card">
+            <img src="INVITATION.jpg" alt="Official Wedding Invitation Card">
         </div>
 
         <div class="details">
@@ -222,8 +222,8 @@
             
             <div class="restriction-box">
                 <p>🚫 &nbsp; **STRICTLY BY INVITATION** &nbsp; 🚫</p>
-                <p>This is an **ADULTS ONLY** reception.</p>
-                <p>NO CHILDREN ALLOWED.</p>
+                <p>This is an **Adults Only** reception.</p>
+                <p>We kindly request no children be in attendance.</p>
             </div>
             
             <h3>Kindly Respond</h3>
@@ -232,8 +232,8 @@
             <form id="rsvp-form"> 
                 
                 <div class="form-group">
-                    <label for="name">Your Full Name</label>
-                    <input type="text" id="name" name="Name" required placeholder="e.g., John Doe ">
+                    <label for="name">Your Full Name(s)</label>
+                    <input type="text" id="name" name="Name" required placeholder="e.g., Mr. and Mrs. Smith">
                 </div>
 
                 <div class="form-group">
@@ -265,11 +265,9 @@
         const loader = document.getElementById('loader');
         const submitBtn = document.querySelector('.submit-btn');
         
-        // No Plus One logic needed.
+        // *** 2. AJAX SUBMISSION LOGIC (Keeps user on the page) ***
         
-        // *** 2. AJAX SUBMISSION LOGIC ***
-        
-        // CRITICAL: Use your correct Google Apps Script URL here!
+        // CRITICAL: Ensure this SCRIPT_URL is correct for your Google Apps Script Web App deployment!
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxyyTCZtfmegJMgu8TOuTu-ViEZO_q-NbF-2Qev2CUKD7Z6jMT6OzDenq62UY3BVRWfqg/exec';
 
         rsvpForm.addEventListener('submit', function(e) {
@@ -292,7 +290,7 @@
                 mode: 'no-cors' 
             })
             .then(response => {
-                // Assuming submission worked (AJAX success).
+                // Assuming submission worked because no-cors prevents status check.
 
                 // --- CUSTOM MESSAGE LOGIC ---
                 const confirmationTitle = confirmationSection.querySelector('h3');
@@ -300,11 +298,11 @@
 
                 if (rsvpStatus === 'Yes') {
                     // Message for YES RSVP
-                    confirmationTitle.innerHTML = '🎉 Clock It!!! See You There!';
-                    confirmationParagraph.innerHTML = 'We are absolutely thrilled you can make it! Your response has been recorded, and we can\'t wait to celebrate with you on The 13th December 2025.';
+                    confirmationTitle.innerHTML = '🎉 **Woohoo! See You There!**';
+                    confirmationParagraph.innerHTML = 'We are absolutely thrilled you can make it! Your response has been recorded, and we can\'t wait to celebrate with you on **13th December 2025.**';
                 } else if (rsvpStatus === 'No') {
                     // Message for NO RSVP
-                    confirmationTitle.innerHTML = '💔 **Chai, That\'s a Bummer!';
+                    confirmationTitle.innerHTML = '💔 **Aww, That\'s a Bummer!**';
                     confirmationParagraph.innerHTML = 'We\'re truly sad you won\'t be able to celebrate with us. We appreciate you letting us know, and we\'ll be thinking of you!';
                 } else {
                      // Fallback message
